@@ -5,7 +5,7 @@
 #include "AudioStream.h"
 #include "Audio.h"
 
-#include "Noise.h"
+
 #include "Biquad.h"
 
 class MyDsp : public AudioStream {
@@ -17,7 +17,7 @@ public:
     // Ajoutez d'autres méthodes pour configurer le filtre, si nécessaire
 private:
     Biquad peakEq;
-    Noise noise;
+    
 };
 
 #endif
