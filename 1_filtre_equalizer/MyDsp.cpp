@@ -21,12 +21,15 @@ void MyDsp::configurePeakEQFilter(float fx, float B, float Lfx) {
 
 
 void MyDsp::update(void) {
-  audio_block_t* outBlock[AUDIO_OUTPUTS];
+  audio_block_t* *inblock, *outBlock[AUDIO_OUTPUTS];
+  inBlock = receiveReadOnly(0); 
+  if (!inBlock) return;
+    
   for (int channel = 0; channel < AUDIO_OUTPUTS; channel++) {
     outBlock[channel] = allocate();
     if (outBlock[channel]) {
       for (int i = 0; i < AUDIO_BLOCK_SAMPLES; i++) {
-        float currentSample = peakEq.tick(noise.tick())*0.5;
+        float currentSample = peakEq.tick(currentSample)*0.5;
         currentSample = max(-1,min(1,currentSample));
         int16_t val = currentSample*MULT_16;
         outBlock[channel]->data[i] = val;
