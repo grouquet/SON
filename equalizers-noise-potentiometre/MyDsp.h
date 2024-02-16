@@ -16,7 +16,7 @@ public:
     void configurePeakEQFilter(int index, float fx, float B, float Lfx);
     // Ajoutez d'autres méthodes pour configurer le filtre, si nécessaire
 private:
-    static const int numEQFilters = 1; // Par exemple, pour trois filtres EQ
+    static const int numEQFilters = 3; // Par exemple, pour trois filtres EQ
     Biquad peakEQs[numEQFilters];
     Noise noise;
 };

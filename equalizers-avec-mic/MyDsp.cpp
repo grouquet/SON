@@ -6,8 +6,7 @@
 #define DIV_16 0.0000305185
 
 MyDsp::MyDsp() : 
-AudioStream(AUDIO_OUTPUTS, new audio_block_t*[AUDIO_OUTPUTS]),
-noise()
+AudioStream(AUDIO_OUTPUTS, new audio_block_t*[AUDIO_OUTPUTS])
 {
 }
 
