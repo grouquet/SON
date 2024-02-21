@@ -5,12 +5,14 @@ DynamicCompressor::DynamicCompressor(float threshold, float ratio, float attack,
 {
 }
 
+//Met à jour l'enveloppe et renvoi l'échantillon compréssé
 float DynamicCompressor::processSample(float sample) {
     updateEnvelope(sample);
     float compressedSample = sample * gain;
     return compressedSample;
 }
 
+//Ajuste l'amplitude de l'enveloppe en fonction du sample et met à jour le gain
 void DynamicCompressor::updateEnvelope(float sample) {
     float sampleAbs = fabs(sample);
     // Attack ou release de l'enveloppe
@@ -22,6 +24,8 @@ void DynamicCompressor::updateEnvelope(float sample) {
     gain = calculateGain(envelope);
 }
 
+
+//Calcule le gain en fonction de l'état de l'enveloppe
 float DynamicCompressor::calculateGain(float envelope) {
     // Convertir l'enveloppe (amplitude) en dB
     float envelopeDB = 20.0 * log10(envelope);

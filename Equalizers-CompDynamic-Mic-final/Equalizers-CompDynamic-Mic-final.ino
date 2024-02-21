@@ -19,14 +19,14 @@ void setup() {
   // Configurer les filtres + Changer nb filtres dans MyDsp.h !!
   myDsp.configurePeakEQFilter(0, 250, 150, 3.0); 
   myDsp.configurePeakEQFilter(1, 475, 175, 4.0); 
-  myDsp.configurePeakEQFilter(2, 750, 250, 6.0); 
-  myDsp.configurePeakEQFilter(3, 1050, 400, 10.0); 
-  myDsp.configurePeakEQFilter(4, 1500, 500, 10.0); 
-  myDsp.configurePeakEQFilter(5, 2000, 500, 12.0); 
-  myDsp.configurePeakEQFilter(6, 3000, 500, 16.0); 
-  myDsp.configurePeakEQFilter(7, 4000, 1000, 25.0); 
-  myDsp.configurePeakEQFilter(8, 6000, 1000, 26.0); 
-  myDsp.configurePeakEQFilter(9, 8000, 1000, 26.0); 
+  myDsp.configurePeakEQFilter(2, 750, 250, 5.0); 
+  myDsp.configurePeakEQFilter(3, 1050, 400, 6.0); 
+  myDsp.configurePeakEQFilter(4, 1500, 500, 8.0); 
+  myDsp.configurePeakEQFilter(5, 2000, 500, 10.0); 
+  myDsp.configurePeakEQFilter(6, 2800, 600, 11.0); 
+  myDsp.configurePeakEQFilter(7, 4200, 1000, 13.0); 
+  myDsp.configurePeakEQFilter(8, 6000, 1000, 15.0); 
+  myDsp.configurePeakEQFilter(9, 8000, 1000, 18.0); 
 
 }
 

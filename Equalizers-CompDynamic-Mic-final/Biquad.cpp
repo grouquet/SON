@@ -22,7 +22,6 @@ float Biquad::tick(float input) {
     return output;
 }
 
-//pas obligé de faire une classe attachée à Biquad ?
 float Biquad::db2linear(float dB) {
     return pow(10.0, dB / 20.0);
 }
@@ -30,13 +29,13 @@ float Biquad::db2linear(float dB) {
 void Biquad::configurePeakEQ(float fx, float B, float Lfx, float SR) {
     float T = 1.0 / SR;
     float wx = 2 * M_PI * fx;
-    float Bw = B * T / sin(wx * T / 2); // Correction ici pour utiliser wx*T/2
+    float Bw = B * T / sin(wx * T / 2); 
     float a1 = M_PI * Bw;
     float g = db2linear(abs(Lfx));
     float b1 = g * a1;
 
-    float b0 = 1.0; // Valeur initiale de b0 avant la transformation
-    float b1s, a1s, b2 = 1.0; // b2 est configuré pour avoir une influence neutre, similaire à b0
+    float b0 = 1.0; 
+    float b1s, a1s, b2 = 1.0; 
     
     if (Lfx > 0) {
         b1s = b1;
@@ -50,11 +49,11 @@ void Biquad::configurePeakEQ(float fx, float B, float Lfx, float SR) {
     float w1 = 2 * M_PI * fx;
     float c = 1 / tan(w1 * 0.5 / SR);
     float csq = c * c;
-    float d = 1 + a1s * c + csq; // Assumant a0 = 1 pour la simplicité, a1 = a1s dans ce cas
+    float d = 1 + a1s * c + csq; 
     float b0d = (b0 + b1s * c + csq) / d;
     float b1d = 2 * (b0 - csq) / d;
     float b2d = (b0 - b1s * c + csq) / d;
-    float a1d = 2 * (1 - csq) / d; // a0 = 1
+    float a1d = 2 * (1 - csq) / d; 
     float a2d = (1 - a1s * c + csq) / d;
 
     setCoefficients(b0d, b1d, b2d, a1d, a2d);
